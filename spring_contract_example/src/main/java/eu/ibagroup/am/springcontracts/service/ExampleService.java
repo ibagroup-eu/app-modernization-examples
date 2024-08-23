@@ -1,7 +1,5 @@
 package eu.ibagroup.am.springcontracts.service;
 
-import java.util.stream.IntStream;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Service;
@@ -25,8 +23,6 @@ public class ExampleService {
     }
     
     public Flux<ContractDto> loadUserContracts(String userId){
-	return Flux.fromStream(
-		IntStream.rangeClosed(0, RandomUtils.nextInt(0, 20)).boxed().map(this::generate)
-	);	
+	return Flux.range(0, RandomUtils.nextInt(0, 20)).map(this::generate);	
     }
 }
