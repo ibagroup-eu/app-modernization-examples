@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 
 public abstract class SpringContractsBase {
     
-    private final String corporate_email_postfix = "@company.com";
+    private final String corporateEmailPostfix = "@company.com";
 
     @MockBean
     ReactiveJwtDecoder jwtDecoder;
@@ -27,8 +27,8 @@ public abstract class SpringContractsBase {
 	when(jwtDecoder.decode(any())).then(answer -> {
 		Map<String, Object> claims = new HashMap<>();
 		String userId = Optional.of(answer.getArgument(0, String.class)).orElse("");
-		if (!userId.endsWith(corporate_email_postfix)) {
-		    userId += corporate_email_postfix; 
+		if (!userId.endsWith(corporateEmailPostfix)) {
+		    userId += corporateEmailPostfix; 
 		}
 		claims.putAll(Collections.singletonMap("email", userId));
 		Jwt jwt = new Jwt("token", 

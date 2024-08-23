@@ -44,7 +44,7 @@ public class ReactiveJwtAuthenticationManager implements ReactiveAuthenticationM
     @Override
     public Mono<Authentication> authenticate(Authentication authentication) {
 	return Mono.justOrEmpty(authentication)
-		.filter(a -> a instanceof BearerTokenAuthenticationToken)
+		.filter(BearerTokenAuthenticationToken.class::isInstance)
 		.switchIfEmpty(Mono.error(new InvalidBearerTokenException("Bearer token is expected")))
 		.cast(BearerTokenAuthenticationToken.class)
 		.map(BearerTokenAuthenticationToken::getToken)

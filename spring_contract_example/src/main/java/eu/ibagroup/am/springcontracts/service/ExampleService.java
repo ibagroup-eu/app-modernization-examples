@@ -26,7 +26,7 @@ public class ExampleService {
     
     public Flux<ContractDto> loadUserContracts(String userId){
 	return Flux.fromStream(
-		IntStream.of(0, RandomUtils.nextInt(0, 20)).boxed().map(this::generate)
+		IntStream.rangeClosed(0, RandomUtils.nextInt(0, 20)).boxed().map(this::generate)
 	);	
     }
 }
