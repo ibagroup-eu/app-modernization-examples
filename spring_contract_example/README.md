@@ -263,7 +263,7 @@ mvn test
 Spring contracts is a powerful tool which allows teams to detect and fix integration issues early in the development cycle
 reduces integration testing overhead, even may serve as analogue of documentation. 
 
-n this article, we demonstrate an approach how quickly with reasonable effort build integration testing to ensure compatibility between the original and migrated applications. 
+In this article, we demonstrate an approach how quickly with reasonable effort build integration testing to ensure compatibility between the original and migrated applications. 
 
 In the next part of this series, we will demonstrate how to improve team collaboration using the Spring Cloud contracts.
 
