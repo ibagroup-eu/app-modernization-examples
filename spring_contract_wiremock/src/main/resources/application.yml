@@ -1,0 +1,28 @@
+spring:
+   application:
+      name: spring-contract-wiremock
+      
+server:
+   port: 8080
+   
+wiremock:
+   server:
+      port: ${CONTRACT_WIREMOCK_PORT:8082}   
+      stubs:      
+      - "classpath*:/META-INF/**/mappings/**/*.json"
+      
+management:
+  health:
+    probes:
+       enabled: true
+    livenessState:
+       enabled: true
+    readinessState:
+       enabled: true    
+  endpoint:         
+    health:
+       enabled: true
+       probes:
+          enabled: true       
+
+      

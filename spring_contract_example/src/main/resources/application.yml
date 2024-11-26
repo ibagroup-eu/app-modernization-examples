@@ -1,0 +1,8 @@
+spring:
+   application:
+      name: spring-contract-example
+   security:
+      oauth2:
+         resourceserver:
+            jwt:
+               jwk-set-uri: https://your.okta.domain.here/oauth2/default/v1/keys 
