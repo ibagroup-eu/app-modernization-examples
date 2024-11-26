@@ -141,30 +141,30 @@ package contracts
 import org.springframework.cloud.contract.spec.Contract
 
   Contract.make {
-    description('Should return user contracts list')
-    name('user-contract-list-possitive')
-    request {
-      method('GET')
-      urlPath($(consumer('/api/contracts'), producer('/contracts')))
-      headers {
-         header(authorization(), "Bearer admin")
-      }
-    }
-    response {
-      status(200)
-      headers {
-        contentType('application/json')
-      }
-      body(file('example-list.json'))
-      bodyMatchers {
-      	        jsonPath('$', byType {
-                	minOccurrence(1)
-        		})
-        		jsonPath('$[*].id', byRegex('[0-9]+').asString())
-        		jsonPath('$[*].contractNumber', byRegex('[a-zA-Z]+').asString())
-        		jsonPath('$[*].country', byRegex('[a-zA-Z]{2}').asString())
-      }
-  	}
+	    description('Should return user contracts list')
+	    name('user-contract-list-possitive')
+	    request {
+		      method('GET')
+		      urlPath($(consumer('/api/contracts'), producer('/contracts')))
+		      headers {
+		         header(authorization(), "Bearer admin")
+		      }
+	    }
+	    response {
+		      status(200)
+		      headers {
+		        contentType('application/json')
+		      }
+		      body(file('example-list.json'))
+		      bodyMatchers {
+		      	        jsonPath('$', byType {
+		                	minOccurrence(1)
+		        		})
+		        		jsonPath('$[*].id', byRegex('[0-9]+').asString())
+		        		jsonPath('$[*].contractNumber', byRegex('[a-zA-Z]+').asString())
+		        		jsonPath('$[*].country', byRegex('[a-zA-Z]{2}').asString())
+		      }
+	  	}
   }
    ```
 
@@ -182,19 +182,19 @@ Contract base test classes play a crucial role in the testing cycle. Each auto-g
 Lets have a look on base test class:
 
    ```java
-@TestInstance(Lifecycle.PER_CLASS)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = "server.port=0")
-public class PositiveBase extends SpringContractsBase{
-
-    @Value("${local.server.port:8080}")
-    private int port;
-    
-    @BeforeAll
-    public void init() {
-		mockDecoder();
-		initRestAssured(port);
-    }
-}
+	@TestInstance(Lifecycle.PER_CLASS)
+	@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = "server.port=0")
+	public class PositiveBase extends SpringContractsBase{
+	
+	    @Value("${local.server.port:8080}")
+	    private int port;
+	    
+	    @BeforeAll
+	    public void init() {
+			mockDecoder();
+			initRestAssured(port);
+	    }
+	}
    ```
 As we defined Spring Contract plugin *testMode* attribute as *EXPLICIT* Rest Assured client will be used as a test client in this case.
 
