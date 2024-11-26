@@ -21,7 +21,7 @@ Spring Contracts provides the ability to create integration tests from captured 
 
 ---
 
-### **How to enable Spring Contracts **
+### How to enable Spring Contracts 
 
 We created pet project [spring_contract_example](https://github.com/ibagroup-eu/app-modernization-examples/tree/main/spring_contract_example) to demonstrate required settings and code examples. 
 
