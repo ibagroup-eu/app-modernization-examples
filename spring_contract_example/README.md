@@ -147,7 +147,7 @@ import org.springframework.cloud.contract.spec.Contract
 		      method('GET')
 		      urlPath($(consumer('/api/contracts'), producer('/contracts')))
 		      headers {
-		         header(authorization(), "Bearer admin")
+		      		header(authorization(), "Bearer admin")
 		      }
 	    }
 	    response {
@@ -157,8 +157,8 @@ import org.springframework.cloud.contract.spec.Contract
 		      }
 		      body(file('example-list.json'))
 		      bodyMatchers {
-		      	        jsonPath('$', byType {
-		                	minOccurrence(1)
+		      	      jsonPath('$', byType {
+		             		minOccurrence(1)
 		        		})
 		        		jsonPath('$[*].id', byRegex('[0-9]+').asString())
 		        		jsonPath('$[*].contractNumber', byRegex('[a-zA-Z]+').asString())
