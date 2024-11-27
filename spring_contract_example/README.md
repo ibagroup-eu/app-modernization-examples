@@ -31,7 +31,7 @@ Project structure:
 
 - **/src/main/java**: The main source code for the example application.
 - **/src/test/java**: Contains tests including *Spring contract base tests*.
-- **/src/test/resources/contracts/**: Contains contract definitions written in Groovy.
+- **/src/test/resources/contracts/**: Contains contract definitions written in Groovy and captured responses in JSON format.
 - **/target/generated-test-sources/contracts**: Auto-generated tests based on the contract files
 
 #### 1. **Maven settings**
@@ -177,7 +177,7 @@ In addition in body matchers section we can apply additional validation to the e
 
 #### 3. **Implementing contract base tests**
 
-Contract base test classes play a crucial role in the testing cycle. Each auto-generated test inherits from a base test, it`s a place where developers should configure tests for execution and manage additional test resources (test containers as an example). 
+Contract base test classes play a crucial role in the testing cycle. Each auto-generated test extends base test class, and actually it`s a place where developers should configure tests for execution and could manage additional test resources (test containers as an example). 
 
 Lets have a look on base test class:
 
