@@ -13,7 +13,7 @@ Application migration is a very challenging task, to say the least. Even when bu
 
 ### **Why we have chosen Spring Cloud Contract?**
 
-We were tasked with migrating a medium-sized, IBM WebSphere-deployed monolithic enterprise application to the Azure cloud. The migration process involved several stages, one of which was the migration of the application's front page. The UI part, already developed using React.js, required minimal intervention. For the Java component, it was decided to migrate the functionality to the [Spring Reactor project](https://spring.io/reactive). Ultimately, the Java part should become a separate REST API microservice — a resource service protected by Okta.
+We were tasked with migrating a medium-sized, IBM WebSphere-deployed monolithic enterprise application to the Azure cloud. The migration process involved several stages, one of which was the migration of the Client-Server web application. The UI part, already developed using React.js, required minimal intervention. For the Java component, it was decided to migrate the functionality to the [Spring Reactor project](https://spring.io/reactive). Ultimately, the Java part should become a separate REST API microservice — a resource service protected by Okta.
 
 During the project analysis, we encountered an unpleasant discovery: a lack of tests. The team needed to find a way to quickly and efficiently implement testing. This was particularly crucial for verifying that nothing was broken in a way. 
 
