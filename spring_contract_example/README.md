@@ -1,4 +1,4 @@
-### **Blog Post: Embracing Spring Contracts for Web Development**
+### **Blog Post: Embracing Spring Contracts for Web Development. Part 1.**
 
 Application migration is a very challenging task, to say the least. Even when business requirements is simply porting same functionality from one platform to another. Specially when you recognized  that the original application has lack of tests and you are short on both - time and human resources. We would like to share some examples of how Spring Cloud Contract can come to the rescue and demonstrate some non-obvious ways it can assist during the code transition process.
 
