@@ -15,13 +15,12 @@ Application migration is a very challenging task, to say the least. Even when bu
 
 We were tasked with migrating a medium-sized, IBM WebSphere-deployed monolithic enterprise application to the Azure cloud. The migration process involved several stages, one of which was the migration of the application's front page. The UI part, already developed using React.js, required minimal intervention. For the Java component, it was decided to migrate the functionality to the [Spring Reactor project](https://spring.io/reactive). Ultimately, the Java part should become a separate REST API microservice — a resource service protected by Okta.
 
-In [Part 1](https://) of this series, we described an approach to quickly enable integration tests for a migrated project using the Spring Cloud Contract framework to ensure compatibility between the original and migrated application. In this article we will show how Spring Contracts can be used to improve team collaboration. 
+In [Part 1](https://github.com/ibagroup-eu/app-modernization-examples/blob/feature-spring-contract-first/spring_contract_example/README.md) of this series, we described an approach to quickly enable integration tests for a migrated project using the Spring Cloud Contract framework to ensure compatibility between the original and migrated application. In this article we will show how Spring Contracts can be used to improve team collaboration. 
 
-During the implementation phase, the team faced a problem when the porting of the front-end part was almost completed, but the implementation of the new back-end part was behind schedule.
+Since we had separate specialists for the UI and server side, we encountered an issue with unequal workload, as the majority of the tasks were concentrated on the server side. We resolved this by introducing Spring contracts, leveraging their integration capabilities with the [WireMock tool](https://wiremock.org/) to provide a lightweight replacement for back-end services while they are still in development. This server can be run locally or in any containerized environment and emulate back-end services by sending back captured responses.
 
-Spring contracts can be easily integrated with the [Wiremock tool](https://wiremock.org/) to provide a lightweight replacement for back-end services while they are still in development. 
+As a result, front-end and server-side developers gained greater independence, which, in our case, allowed us to plan and implement additional UI enhancements during the migration.
 
-As a result, the front-end team gets a lightweight server that can be run locally or in any containerized environment. This server could emulate back-end services by sending back captured responses.
 
 ---
 
@@ -65,7 +64,7 @@ The Spring Cloud Contract WireMock modules allow you to use WireMock in a Spring
    
 Apart from auto-test generation, the Spring Cloud Contract plugin generates a JAR file containing stubs. This JAR file can be used to run a WireMock server in consumer tests. The stub JAR can be published to a centralized artifactory, such as a Maven repository, and added to consumer tests as needed.
 
-We have stub jar created as result of enabling Spring Cloud Contract described in [Part 1](https://) of this series.
+We have stub jar created as result of enabling Spring Cloud Contract described in [Part 1](https://github.com/ibagroup-eu/app-modernization-examples/blob/feature-spring-contract-first/spring_contract_example/README.md) of this series.
 Let's define it as a dependency in the application's `pom.xml` file.
 
    ```xml
